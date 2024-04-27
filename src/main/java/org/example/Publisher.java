@@ -15,28 +15,27 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
+import java.util.ArrayList;
+
 public class Publisher
 {
 
 
-    private static String QUEUE_NAME = "Hello"; //Set up the class and name the queue:
-    //private static ArrayList<String> cities = new ArrayList<>(); // ArrayList to store the name of the cities
+    private static String QUEUE_NAME = "FirstMQTT"; //Set up the class and name the queue:
+    private static ArrayList<String> cities = new ArrayList<>(); // ArrayList to store the name of the cities
 
 
     public static void main(String[] args)
     {
-
-
         sayHello();
 
-
-
         //Add cities into ArrayList
-        //cities.add("Dublin");
-        //cities.add("Swords");
-        //cities.add("Donabate Beach");
+        cities.add("Dublin");
+        cities.add("Swords");
+        cities.add("Donabate Beach");
 
-        // Publish transactions with a delay
+        //Publish the name of the cities
+        citiesName();
 
 
 
@@ -89,9 +88,7 @@ public class Publisher
     }
 
 
-
-    /*
-    private static void temperatureGenerator()
+    private static void citiesName()
     {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost"); // RabbitMQ server host
@@ -107,14 +104,14 @@ public class Publisher
             {
                 channel.basicPublish("", QUEUE_NAME, null, myCity.getBytes());
                 System.out.println(" [x] Sent '" + cities + "'");
-                Thread.sleep(1000); // Delay in milliseconds (15 seconds)
+                Thread.sleep(5000);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-     */
+
 
 
 }

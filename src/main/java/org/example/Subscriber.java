@@ -27,7 +27,7 @@ public class Subscriber
      * and declare the queue from which we're going to consume.
      * Note this matches up with the queue that send publishes to.
      */
-    private final static String QUEUE_NAME = "Hello";
+    private final static String QUEUE_NAME = "FirstMQTT";
 
     public static void main(String[] args) throws IOException, TimeoutException
     {
